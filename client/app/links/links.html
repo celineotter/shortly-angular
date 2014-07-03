@@ -1,7 +1,10 @@
 <div id='container' ng-controller:'LinksController'>
   <a href = "#/shorten"><button>shorten</button></a>
   <a href = "#/links"><button>links</button></a>
-  <div class='info' ng-repeat='urlData in data.links'>
+
+  <input type='search' ng-model='findLink'/>
+
+  <div class='info' ng-repeat='urlData in data.links | orderBy: predicate | filter:findLink'>
     <div> - </div>
     <div class='visits'><span class='count'>Count: {{urlData.visits}}</span>Visits</div>
     <div class='title'>Title: {{urlData.title}}</div>

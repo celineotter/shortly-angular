@@ -1,9 +1,14 @@
 <div id='signup'>
   <h1>signup</h1>
-  <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+<form name="signupForm" ng-submit="submitForm(signupForm.$valid, signup)" novalidate>
+    <input type='text'ng-model='user.username' required ng-minlength="5" name="name">
+    <label ng-show = "signupForm.name.$error.minlength">Username is too short.</label>
+    <input type="password" ng-model='user.password' required ng-minlength="5" name="password">
+    <label ng-show = "signupForm.password.$error.minlength">Username is too short.</label>
+    <br>
+    <button type="submit" ng-disabled="userForm.$invalid">signin</button>
+
+
   </form>
   <a href="#/signin">Already have an account? Signin ...</a>
 </div>

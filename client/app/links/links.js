@@ -2,6 +2,7 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links, $http) {
   $scope.data = {};
+  $scope.predicate = '-visits';
   $scope.getLinks = function(){
     $http({
       method: 'GET',

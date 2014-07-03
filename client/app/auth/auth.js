@@ -6,9 +6,9 @@ angular.module('shortly.auth', [])
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
 
-  $scope.submitForm = function(isValid) {
+  $scope.submitForm = function(isValid, cb) {
     if (isValid) {
-      $scope.signin();
+      cb();
     }
   };
 
