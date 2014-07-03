@@ -1,0 +1,21 @@
+<div id='container' ng-controller='ShortenController'>
+<div class="navigation">
+  <ul>
+  <li><a href = "#/shorten">shorten</a></li>
+  <li><a href = "#/links">links</a></li>
+  <li><a href = "#/" ng-click="signOut()">sign-out</a></li>
+</div>
+<div class="creator">
+ <form name ="submitNewLink" ng-submit="submitForm(submitNewLink.$valid, addLink)" novalidate>
+  <input ng-model='newLink'
+    required ng-pattern="/^(?!mailto:)(?:(?:https?|ftp):\/\/)?(?:\S+(?::\S*)?@)?(?:(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[0-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))|localhost)(?::\d{2,5})?(?:\/[^\s]*)?$/i" name="link" class="clean">
+  <img src="../assets/spiffygif_46x46.gif" class="spinner" ng-show="loading">
+  <label ng-show = "submitNewLink.link.$error.pattern">Link must be in propper format 'http://www.xxx.xx</label>
+  <br>
+  <button ng-click='addLink(newLink)' ng-disabled="submitNewLink.$invalid">Add Link</button>
+</div>
+
+
+</div>
+
+

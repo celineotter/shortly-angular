@@ -41,6 +41,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('yo')
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

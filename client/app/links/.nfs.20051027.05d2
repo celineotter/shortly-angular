@@ -4,6 +4,7 @@ angular.module('shortly.links', [])
   $scope.data = {};
   $scope.predicate = '-visits';
   $scope.signOut = Auth.signout;
+
   $scope.getLinks = function(){
     $http({
       method: 'GET',

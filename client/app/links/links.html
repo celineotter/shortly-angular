@@ -1,14 +1,23 @@
 <div id='container' ng-controller:'LinksController'>
-  <a href = "#/shorten"><button>shorten</button></a>
-  <a href = "#/links"><button>links</button></a>
+<div class="navigation">
+  <ul>
+  <li><a href = "#/shorten">shorten</a></li>
+  <li><a href = "#/links">links</a></li>
+  <li><a href = "#/" ng-click="signOut()">sign-out</a></li>
+</div>
 
-  <input type='search' ng-model='findLink'/>
+  <input type='search' ng-model='findLink' class="linkSearch">
+  <div class='info' ng-repeat='urlData in data.links | orderBy: predicate | filter:findLink' id="container">
+    <div class="link">
+    <img src='../assets/redirect_icon.png'/>
+    <div class='visits'><span class='count'>{{urlData.visits}}</span>Visits</div>
+    <div class='title'>{{urlData.title}}</div>
 
-  <div class='info' ng-repeat='urlData in data.links | orderBy: predicate | filter:findLink'>
-    <div> - </div>
-    <div class='visits'><span class='count'>Count: {{urlData.visits}}</span>Visits</div>
-    <div class='title'>Title: {{urlData.title}}</div>
-    <div class='original'>Url: {{urlData.url}}</div>
-    <a href='{{urlData.base_url}}/api/links/{{urlData.code}}'>Cached: {{urlData.base_url}}/{{urlData.code}}</a>
+    <div class='original'>{{urlData.url}}</div>
+
+    <div class="info"><a href='{{urlData.base_url}}/api/links/{{urlData.code}}'>{{urlData.base_url}}/{{urlData.code}}</a>
+    </div>
   </div>
+
+</div>
 </div>

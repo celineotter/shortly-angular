@@ -4,6 +4,8 @@ angular.module('shortly.shorten', [])
   $scope.link = {};
   $scope.newLink = '';
 
+
+
   $scope.submitForm = function(isValid, cb) {
     if (isValid) {
       cb();
