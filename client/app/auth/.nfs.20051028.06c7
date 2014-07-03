@@ -2,10 +2,10 @@
   <h1>signin</h1>
   <form name="signinForm" ng-submit="submitForm(signinForm.$valid)" novalidate>
     <input type='text'ng-model='user.username' required ng-minlength="5" name="name">
-    <label ng-show = "signinForm.name.$error.minlength">Username is too short.</label>
+    <label ng-show = "signinForm.name.$invalid && !signinForm.name.$pristine"></label>
+    <label ng-show="signForm.name.$error.minlength" class="help-block">Username is too short.</p>
+
     <input type="password" ng-model='user.password' required ng-minlength="5" name="password">
-    <label ng-show = "signinForm.password.$error.minlength">Username is too short.</label>
-    <br>
     <button type="submit" ng-disabled="userForm.$invalid">signin</button>
 
 

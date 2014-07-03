@@ -1,8 +1,11 @@
 <div id='container' ng-controller:'LinksController'>
-
-    <button ng-click=''>Links</button>
-    <button ng-click=''>Shorten</button>
-  <ul>
-    <li ng-repeat="link in data.links">{{ link }}</li>
-  </ul>
+  <a href = "#/shorten"><button>shorten</button></a>
+  <a href = "#/links"><button>links</button></a>
+  <div class='info' ng-repeat='urlData in data.links'>
+    <div> - </div>
+    <div class='visits'><span class='count'>Count: {{urlData.visits}}</span>Visits</div>
+    <div class='title'>Title: {{urlData.title}}</div>
+    <div class='original'>Url: {{urlData.url}}</div>
+    <a href='{{urlData.base_url}}/api/links/{{urlData.code}}'>Cached: {{urlData.base_url}}/{{urlData.code}}</a>
+  </div>
 </div>
